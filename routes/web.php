@@ -3,6 +3,8 @@
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookkeepingController;
+use App\Http\Controllers\ComputerSystemServicingController;
 use App\Http\Controllers\OfficerController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +34,16 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth','applicant','preventBackHistory'])->prefix('applicant/my')->name('applicant.')->group(function () {
     Route::get('dashboard', [ApplicantController::class, 'dashboard'])->name('dashboard');
+    Route::get('sag/css', [ApplicantController::class, 'sagCss'])->name('sag.css');
+    Route::get('sag/css/store', [ComputerSystemServicingController::class, 'store'])->name('sag.css.store');
+
+    // bookkeeping
+    Route::get('sag/bookkeeping', [ApplicantController::class, 'sagBookkeeping'])->name('sag.bookkeeping');
+    Route::post('sag/bookkeeping/store', [BookkeepingController::class, 'store'])->name('sag.bookkeeping.store');
+    
+    //download or donwload file SAG
+    Route::get('download', [ApplicantController::class, 'download'])->name('download');
+
 });
 
 Route::middleware(['auth','officer','preventBackHistory'])->prefix('officer/my')->name('officer.')->group(function () {

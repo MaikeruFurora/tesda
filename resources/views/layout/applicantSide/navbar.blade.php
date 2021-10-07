@@ -1,6 +1,6 @@
 <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
-      <a href="#" class="navbar-brand">
+      <a href="{{ route('applicant.dashboard') }}" class="navbar-brand">
         <img src="{{ asset('dist/img/tesda.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">CSPC TESDA</span>
       </a>
@@ -13,10 +13,13 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="#" class="nav-link">Home</a>
+            <a href="{{ route('applicant.dashboard') }}" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('applicant.download') }}" class="nav-link">Download</a>
           </li>
           {{-- <li class="nav-item">
             <a href="#" class="nav-link">Contact</a>
@@ -34,11 +37,7 @@
 
       <!-- Right navbar links -->
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#" role="button">
-            {{auth()->user()->fullname}}
-          </a>
-        </li>
+      
         <li class="nav-item">
           <a class="nav-link" href="#" role="button">
             @if (auth()->user()->user_type=='applicant')

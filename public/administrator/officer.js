@@ -33,7 +33,7 @@ let show = () => {
                         </td>
                         </td>
                         <td>
-                        ${val.username},
+                        ${val.username}
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic example">
